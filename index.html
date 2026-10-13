@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apple Box</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff8ef;
+        }
+
+        h1 {
+            margin-top: 40px;
+        }
+
+        #box {
+            width: 300px;
+            height: 250px;
+            margin: 20px auto;
+            border: 5px solid brown;
+            border-radius: 10px;
+            background-color: #f5d6ad;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .apple {
+            font-size: 35px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🍎 Apple Box</h1>
+    <p>Click inside the box to add an apple!</p>
+
+    <div id="box"></div>
+
+    <p>Number of apples: <span id="count">0</span></p>
+
+    <button onclick="resetBox()">Empty Box</button>
+
+    <script>
+        let count = 0;
+
+        document.getElementById("box").onclick = function() {
+            let apple = document.createElement("span");
+            apple.textContent = "🍎";
+            apple.className = "apple";
+
+            document.getElementById("box").appendChild(apple);
+
+            count = count + 1;
+            document.getElementById("count").textContent = count;
+        };
+
+        function resetBox() {
+            document.getElementById("box").innerHTML = "";
+            count = 0;
+            document.getElementById("count").textContent = count;
+        }
+    </script>
+</body>
+</html>
